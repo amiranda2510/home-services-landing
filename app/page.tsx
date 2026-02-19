@@ -5,13 +5,13 @@ import IntegrationsSection from "@/components/integrations-1";
 import Testimonials from "@/components/testimonials";
 
 export default function Home() {
-  return (
-    <main>
-        <HeroSection />
-        <IntegrationsSection />
-        <Testimonials />
-        <CallToAction />
-        <FooterSection />
-    </main>
-  );
+	return (
+		<section id="home">
+			<HeroSection />
+			<IntegrationsSection />
+			<Testimonials />
+			<CallToAction />
+			<FooterSection />
+		</section>
+	);
 }

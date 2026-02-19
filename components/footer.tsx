@@ -1,4 +1,4 @@
-import { Logo } from '@/components/logo'
+import { LogoFooter } from '@/components/logo'
 import Link from 'next/link'
 
 const links = [
@@ -36,7 +36,7 @@ export default function FooterSection() {
                     href="/"
                     aria-label="go home"
                     className="mx-auto block size-fit">
-                    <Logo />
+                    <LogoFooter />
                 </Link>
 
                 <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">

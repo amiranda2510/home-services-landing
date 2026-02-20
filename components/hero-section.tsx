@@ -32,8 +32,8 @@ export default function HeroSection() {
       <main className="overflow-hidden [--color-primary-foreground:var(--color-white)] [--color-primary:var(--color-green-600)]">
         <section className="relative bg-white  overflow-hidden">
 
-          {/* Contenedor general */}
-          <div className="mx-auto ">
+          {/* Contenedor general
+          <div className="mx-auto "> */}
 
             {/* Marco blanco */}
 
@@ -44,9 +44,6 @@ export default function HeroSection() {
               }}
               className="bg-cover bg-center"
             >
-
-              {/* Contenido */}
-              <div className="relative z-10">
 
                 <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32 lg:pt-48">
 
@@ -141,11 +138,7 @@ export default function HeroSection() {
 
                   </div>
                 </div>
-
-              </div>
-
             </div>
-          </div>
         </section>
 
         <LogoCloud />
@@ -199,6 +192,7 @@ const AppComponent = () => {
             Sí 🙌 Incluye pintura, protección de muebles y limpieza final
           </div>
         </div>
+
       </div>
 
       {/* Input fake */}

@@ -30,7 +30,7 @@ const projects = [
 
 export default function BeforeAfterCarousel() {
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-16 scroll-mt-24" id="proyectos">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Proyectos Realizados</h2>
         <Carousel className="relative w-full">

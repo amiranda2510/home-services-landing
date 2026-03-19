@@ -11,7 +11,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 const menuItems = [
   { name: 'Home', href: '#home' },
   { name: 'Servicios', href: '#servicios' },
-  { name: 'Trabajos', href: '#trabajos' },
+  { name: 'Proyectos', href: '#proyectos' },
   { name: 'Testimonios', href: '#testimonios' },
   { name: 'Sobre Mi', href: '#sobre-mi' },
 ]
@@ -19,6 +19,7 @@ const menuItems = [
 export const HeroHeader = () => {
   const [menuState, setMenuState] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const whatsappUrl = `https://wa.me/51929287749?text=${encodeURIComponent('Hola, quiero cotizar un servicio')}`
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +33,7 @@ export const HeroHeader = () => {
       <nav
         data-state={menuState && 'active'}
         className="fixed z-20 w-full px-4 py-3 lg:px-6">
-        <div className={cn('mx-auto mt-4 max-w-6xl transition-all duration-300 rounded-2xl bg-background/50', isScrolled && 'rounded-2xl bg-background/50 max-w-4xl backdrop-blur-lg lg:px-5')}>
+        <div className={cn('px-3 mx-auto mt-4 max-w-6xl transition-all duration-300 rounded-4xl bg-background/60 backdrop-blur-xs', isScrolled && 'rounded-2xl bg-background/50 max-w-4xl backdrop-blur-lg lg:px-5')}>
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 px-4 lg:gap-0 lg:py-2.5">
             <div className="flex w-full justify-between lg:w-auto">
               <a
@@ -85,7 +86,7 @@ export const HeroHeader = () => {
                   asChild
                   size={isScrolled ? "sm" : "lg"}
                   className='bg-[#128C7E] hover:bg-[#128C7E]/90 focus:ring-[#128C7E]/50 active:bg-[#128C7E]/70'>
-                  <Link href="#">
+                  <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <div className='flex items-center gap-2'>
                       <FaWhatsapp className="text-white" />
                       <span>Escríbenos</span>

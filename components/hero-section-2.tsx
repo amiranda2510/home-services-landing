@@ -1,5 +1,4 @@
 import { Button } from './ui/button'
-import Image from 'next/image'
 import Link from 'next/link'
 import { HeroHeader } from './header'
 import { AnimatedGroup } from './ui/animated-group'
@@ -28,25 +27,26 @@ export default function HeroSection2() {
   return (
     <>
       <HeroHeader />
-      <main className="overflow-x-hidden">
+      <main className="overflow-x-hidden text-zinc-100">
         <section>
           <div
             style={{
               backgroundImage: "url('/assets/hero4.jpg')",
             }}
-            className="bg-cover bg-center"
+            className="relative bg-cover bg-center"
           >
-            <div className="pb-24 pt-12 md:pb-22 lg:pb-36 lg:pt-15">
+            <div className="absolute inset-0 bg-black/25" aria-hidden></div>
+            <div className="relative z-10 pb-24 pt-12 md:pb-22 lg:pb-36 lg:pt-15">
               <div className="relative mx-auto flex max-w-6xl flex-col px-6 lg:flex-row lg:items-center lg:gap-12">
                 <div className="mx-auto max-w-lg text-center lg:ml-0 lg:w-1/2 lg:text-left">
-                  <h1 className="mt-24 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-10 xl:text-7xl">Soluciones confiables para tu hogar</h1>
-                  <p className="mt-8 max-w-2xl text-pretty text-lg">Reparaciones, mantenimiento y remodelaciones. Trabajos garantizados y atención personalizada en todo Lima</p>
+                  <h1 className="mt-24 max-w-2xl text-balance text-5xl font-bold text-zinc-50 md:text-6xl lg:mt-10 xl:text-7xl">Soluciones confiables para tu hogar</h1>
+                  <h3 className="mt-8 max-w-2xl text-pretty text-xl font-semibold text-zinc-200">Reparaciones, mantenimiento y remodelaciones. Trabajos garantizados y atención personalizada en todo Lima</h3>
 
                   <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
                     <Button
                       asChild
                       size="lg"
-                      className="px-5 text-base">
+                      className="px-5 text-base text-zinc-50 hover:text-zinc-50">
                       <Link href="#link">
                         <span className="text-nowrap">Cotiza ahora</span>
                       </Link>
@@ -56,7 +56,7 @@ export default function HeroSection2() {
                       asChild
                       size="lg"
                       variant="ghost"
-                      className="px-5 text-base">
+                      className="px-5 text-base text-zinc-100 hover:text-zinc-50 font-bold">
                       <Link href="#link">
                         <span className="text-nowrap">Solicita una visita</span>
                       </Link>
@@ -104,17 +104,17 @@ export default function HeroSection2() {
 
 const AppComponent = () => {
   return (
-    <div className="relative space-y-4 rounded-3xl bg-[#0f172a] p-4 text-sm">
+    <div className="relative space-y-4 rounded-3xl bg-[#0f172a] p-4 text-sm text-zinc-100">
       {/* Header tipo WhatsApp */}
       <div className="flex items-center gap-3 border-b border-white/10 pb-3">
         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-green-500 text-white font-semibold">
           AS
         </div>
         <div>
-          <p className="text-white font-medium leading-none">
+          <p className="text-zinc-50 font-medium leading-none">
             Alex Soluciones
           </p>
-          <p className="text-xs text-green-400">En línea</p>
+          <p className="text-xs text-emerald-200">En línea</p>
         </div>
       </div>
 
@@ -122,28 +122,28 @@ const AppComponent = () => {
       <div className="space-y-3 pt-2">
         {/* Cliente */}
         <div className="flex justify-start">
-          <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-zinc-700 px-4 py-2 text-white">
+          <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-zinc-700 px-4 py-2 text-zinc-100">
             Hola 👋 necesito una cotización para pintar mi sala.
           </div>
         </div>
 
         {/* Profesional */}
         <div className="flex justify-end">
-          <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-green-600 px-4 py-2 text-white">
+          <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-green-600 px-4 py-2 text-zinc-50">
             ¡Claro! 😊 ¿Te gustaría agendar una visita?
           </div>
         </div>
 
         {/* Cliente */}
         <div className=" justify-start hidden sm:flex">
-          <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-zinc-700 px-4 py-2 text-white">
+          <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-zinc-700 px-4 py-2 text-zinc-100">
             Sí! ¿el servicio incluye materiales?
           </div>
         </div>
 
         {/* Profesional */}
         <div className="justify-end hidden sm:flex">
-          <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-green-600 px-4 py-2 text-white">
+          <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-green-600 px-4 py-2 text-zinc-50">
             Sí 🙌 Incluye pintura, protección de muebles y limpieza final
           </div>
         </div>
@@ -152,7 +152,7 @@ const AppComponent = () => {
 
       {/* Input fake */}
       <div className="absolute bottom-4 left-4 right-4">
-        <div className="flex items-center gap-2 rounded-full bg-zinc-800 px-4 py-2 text-zinc-400 text-xs">
+        <div className="flex items-center gap-2 rounded-full bg-zinc-800 px-4 py-2 text-zinc-300 text-xs">
           Escribe un mensaje...
         </div>
       </div>

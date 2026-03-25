@@ -24,6 +24,8 @@ const transitionVariants = {
 }
 
 export default function HeroSection2() {
+  const whatsappUrl = `https://wa.me/51929287749?text=${encodeURIComponent('Hola, quiero cotizar un servicio')}`
+
   return (
     <>
       <HeroHeader />
@@ -46,19 +48,12 @@ export default function HeroSection2() {
                     <Button
                       asChild
                       size="lg"
-                      className="px-5 text-base text-zinc-50 hover:text-zinc-50">
-                      <Link href="#link">
-                        <span className="text-nowrap">Cotiza ahora</span>
-                      </Link>
-                    </Button>
-                    <Button
-                      key={2}
-                      asChild
-                      size="lg"
-                      variant="ghost"
-                      className="px-5 text-base text-zinc-100 hover:text-zinc-50 font-bold">
-                      <Link href="#link">
-                        <span className="text-nowrap">Solicita una visita</span>
+                      className="px-5 text-base text-zinc-50 transition-all duration-300 ease-out hover:scale-105 hover:text-zinc-50 hover:shadow-[0_12px_30px_rgba(30,140,70,0.45)] focus-visible:scale-105 focus-visible:text-zinc-50 focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.25)] active:scale-100"
+                      aria-label="Cotiza ahora"
+                      style={{ backgroundColor: '#1EA851' }}
+                      >
+                      <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                        <span className="text-nowrap">👉    Cotiza ahora</span>
                       </Link>
                     </Button>
                   </div>

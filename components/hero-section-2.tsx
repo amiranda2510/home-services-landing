@@ -44,19 +44,6 @@ export default function HeroSection2() {
                   <h1 className="mt-24 max-w-2xl text-balance text-5xl font-bold text-zinc-50 md:text-6xl lg:mt-10 xl:text-7xl">Soluciones confiables para tu hogar</h1>
                   <h3 className="mt-8 max-w-2xl text-pretty text-xl font-semibold text-zinc-200">Reparaciones, mantenimiento y remodelaciones. Trabajos garantizados y atención personalizada en todo Lima</h3>
 
-                  <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="px-5 text-base text-zinc-50 transition-all duration-300 ease-out hover:scale-105 hover:text-zinc-50 hover:shadow-[0_12px_30px_rgba(30,140,70,0.45)] focus-visible:scale-105 focus-visible:text-zinc-50 focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.25)] active:scale-100"
-                      aria-label="Cotiza ahora"
-                      style={{ backgroundColor: '#1EA851' }}
-                      >
-                      <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                        <span className="text-nowrap">👉    Cotiza ahora</span>
-                      </Link>
-                    </Button>
-                  </div>
                 </div>
                 <AnimatedGroup
                   variants={{

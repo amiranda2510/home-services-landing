@@ -1,12 +1,12 @@
 import { Card } from '@/components/ui/card'
 import * as React from 'react'
 import {
-  LuWrench,
-  LuZap,
-  LuHammer,
-  LuRuler,
-  LuHouse,
-  LuPlug,
+    LuWrench,
+    LuZap,
+    LuHammer,
+    LuRuler,
+    LuHouse,
+    LuPlug,
 } from "react-icons/lu";
 
 export default function IntegrationsSection() {
@@ -23,7 +23,7 @@ export default function IntegrationsSection() {
                         <IntegrationCard
                             title="Gasfitería"
                             description="Reparación de fugas, cambio de griferías, instalación de sanitarios y mantenimiento general.">
-                             <LuWrench className="text-[#9a9468]" size={28} />
+                            <LuWrench className="text-[#9a9468]" size={28} />
                         </IntegrationCard>
 
                         <IntegrationCard
@@ -64,7 +64,7 @@ export default function IntegrationsSection() {
 
 const IntegrationCard = ({ title, description, children }: { title: string; description: string; children: React.ReactNode; link?: string }) => {
     return (
-        <Card className="p-6">
+        <Card className="p-6 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl cursor-default">
             <div className="relative">
                 <div className="*:size-10">{children}</div>
 

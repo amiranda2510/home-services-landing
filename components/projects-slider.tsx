@@ -15,17 +15,29 @@ import {
 
 const projects = [
   {
-    title: "Remodelación de baño",
+    title: "Instalación de piso laminado",
     location: "San Miguel",
-    before: "/assets/hero3.jpg",
-    after: "/assets/hero4.jpg",
+    before: "/assets/portfolio/pisoantes.jpg",
+    after: "/assets/portfolio/piso.jpg",
   },
   {
-    title: "Instalación de cocina",
+    title: "Renovación de reja de seguridad",
     location: "Pueblo Libre",
-    before: "/assets/hero-bg.jpg",
-    after: "/assets/hero1.jpg",
+    before: "/assets/portfolio/reja_before.jpg",
+    after: "/assets/portfolio/reja_after.png",
   },
+  {
+    title: "Cambio y pintado de puertas de madera",
+    location: "San Isidro",
+    before: "/assets/portfolio/puerta_before.jpg",
+    after: "/assets/portfolio/puerta_after.jpg",
+  },
+  {
+    title: "Pintado de paredes interiores",
+    location: "Miraflores",
+    before: "/assets/portfolio/wall_before.jpg",
+    after: "/assets/portfolio/wall_after.jpg",
+  }
 ];
 
 export default function BeforeAfterCarousel() {

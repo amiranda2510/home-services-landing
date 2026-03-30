@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function AboutSection() {
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-20 bg-[#f0f0f0]">
       <div className="max-w-6xl mx-auto px-4">
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -35,7 +35,7 @@ export function AboutSection() {
 
               <div className="flex flex-wrap items-center gap-6 opacity-70">
                 <Image
-                  src="/logos/casa-ideal.png"
+                  src="/assets/casaideal.svg"
                   alt="Casa Ideal"
                   width={120}
                   height={40}
@@ -43,7 +43,7 @@ export function AboutSection() {
                 />
 
                 <Image
-                  src="/logos/terrazul.png"
+                  src="/assets/terrazul.svg"
                   alt="Terrazul"
                   width={120}
                   height={40}

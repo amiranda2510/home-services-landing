@@ -4,7 +4,6 @@ import HeroSection2 from "@/components/hero-section-2";
 import IntegrationsSection from "@/components/services-section";
 import CompareSlider from "@/components/projects-slider";
 import { AboutSection } from "@/components/about-section";
-import ContactSection from "@/components/contact-section";
 
 export default function Home() {
 	return (

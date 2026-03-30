@@ -1,5 +1,3 @@
-import { Button } from './ui/button'
-import Link from 'next/link'
 import { HeroHeader } from './header'
 import { AnimatedGroup } from './ui/animated-group'
 
@@ -24,7 +22,6 @@ const transitionVariants = {
 }
 
 export default function HeroSection2() {
-  const whatsappUrl = `https://wa.me/51929287749?text=${encodeURIComponent('Hola, quiero cotizar un servicio')}`
 
   return (
     <>

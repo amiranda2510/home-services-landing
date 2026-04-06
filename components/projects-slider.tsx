@@ -1,113 +1,55 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
-import {
-  ReactCompareSlider,
-} from "react-compare-slider";
-
-const projects = [
-  {
-    title: "Instalación de piso laminado",
-    location: "San Miguel",
-    before: "/assets/portfolio/pisoantes.jpg",
-    after: "/assets/portfolio/piso.jpg",
-  },
-  {
-    title: "Renovación de reja de seguridad",
-    location: "Pueblo Libre",
-    before: "/assets/portfolio/reja_before.jpg",
-    after: "/assets/portfolio/reja_after.png",
-  },
-  {
-    title: "Cambio y pintado de puertas de madera",
-    location: "San Isidro",
-    before: "/assets/portfolio/puerta_before.jpg",
-    after: "/assets/portfolio/puerta_after.jpg",
-  },
-  {
-    title: "Pintado de paredes interiores",
-    location: "Miraflores",
-    before: "/assets/portfolio/wall_before.jpg",
-    after: "/assets/portfolio/wall_after.jpg",
-  }
+const photos = [
+  { src: "/assets/portfolio/piso.jpg", label: "Piso laminado", location: "San Miguel", span: 2 },
+  { src: "/assets/portfolio/reja_after.png", label: "Reja de seguridad", location: "Pueblo Libre", span: 2 },
+  { src: "/assets/portfolio/puerta_after.jpg", label: "Puertas de madera", location: "San Isidro", span: 1 },
+  { src: "/assets/portfolio/wall_after.jpg", label: "Pintura interior", location: "Miraflores", span: 1 },
+  { src: "/assets/portfolio/remodelacion.jpg", label: "Remodelación de puertas", location: "Surco", span: 2 },
 ];
 
-export default function BeforeAfterCarousel() {
+export default function ProjectsGrid() {
   return (
-    <section className="w-full py-16 scroll-mt-24" id="proyectos">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Proyectos Realizados</h2>
-        <Carousel className="relative w-full">
-          <CarouselContent>
-            {projects.map((project, index) => (
-              <CarouselItem key={index}>
-                <div className="space-y-6">
-
-                  {/* Título */}
-                  <div className="text-center space-y-1">
-                    <h4 className="text-xl md:text-2xl font-semibold">
-                      {project.title}
-                    </h4>
-                    <p className="text-muted-foreground text-sm">
-                      {project.location}
-                    </p>
-                  </div>
-
-                  {/* Slider */}
-                  <div className="relative max-w-4xl mx-auto">
-
-                    {/* Hint */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 bg-black/60 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                      ← Desliza para ver el cambio →
-                    </div>
-
-                    <div className="rounded-xl overflow-hidden shadow-lg">
-                      <ReactCompareSlider
-                        itemOne={
-                          <div className="relative w-full aspect-4/3">
-                            <Image
-                              src={project.before}
-                              alt="Antes"
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        }
-                        itemTwo={
-                          <div className="relative w-full aspect-4/3">
-                            <Image
-                              src={project.after}
-                              alt="Después"
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  {/* Descripción opcional */}
-                  <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto">
-                    Trabajo realizado con materiales de alta calidad y acabado profesional.
-                  </p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          {/* Flechas */}
-          <CarouselPrevious className="left-2 md:left-6 bg-white shadow-md hover:bg-primary hover:text-white transition" />
-          <CarouselNext className="right-2 md:right-6 bg-white shadow-md hover:bg-primary hover:text-white transition" />
-        </Carousel>
+    <section
+      className="relative w-full scroll-mt-24 bg-cover bg-center py-16"
+      id="proyectos"
+      style={{ backgroundImage: "url('/assets/project-bg.jpg')" }}
+    >
+      <div className="absolute inset-0 bg-black/55" aria-hidden></div>
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
+        <h1 className="text-3xl font-bold md:text-4xl text-center mb-4 text-white">
+          Proyectos Realizados
+        </h1>
+        <h3 className="text-center text-[#f0f0f0] font-semibold mb-15">Algunos de nuestros trabajos recientes</h3>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-3">
+          {photos.map((photo, i) => (
+            <div
+              key={i}
+              className={[
+                "group relative h-56 overflow-hidden cursor-pointer md:h-72",
+                "transition-all duration-300 hover:shadow-2xl",
+                photo.span === 2 ? "md:col-span-2" : "md:col-span-1",
+              ].join(" ")}
+            >
+              <Image
+                src={photo.src}
+                alt={`${photo.label} en ${photo.location}`}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <span className="mb-1 inline-block rounded-full bg-[#03466e] px-2 py-0.5 text-xs font-semibold text-white">
+                  Proyecto realizado
+                </span>
+                <p className="text-white text-sm font-semibold leading-tight">{photo.label}</p>
+                <p className="text-white/70 text-xs">{photo.location}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

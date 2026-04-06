@@ -1,124 +1,97 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+"use client";
+
+import { Star } from "lucide-react";
+
+import { Card, CardContent } from "@/components/ui/card";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const testimonials = [
+    {
+        nombre: "Mariana R.",
+        servicio: "Pintura interior y acabados",
+        lugar: "Miraflores",
+        puntaje: 5,
+        texto:
+            "El servicio fue puntual y muy ordenado. El acabado quedó limpio, parejo y con excelente detalle en esquinas y techos.",
+    },
+    {
+        nombre: "Luis G.",
+        servicio: "Instalación de puertas de madera",
+        lugar: "San Isidro",
+        puntaje: 5,
+        texto:
+            "Trabajo de gran calidad. Ajustaron cada puerta con precisión y dejaron todo funcionando perfecto desde el primer día.",
+    },
+    {
+        nombre: "Patricia V.",
+        servicio: "Colocación de piso laminado",
+        lugar: "San Miguel",
+        puntaje: 4,
+        texto:
+            "Muy buena atención y comunicación en todo el proceso. El piso quedó uniforme y el ambiente cambió completamente.",
+    },
+    {
+        nombre: "Carlos M.",
+        servicio: "Reja de seguridad a medida",
+        lugar: "Pueblo Libre",
+        puntaje: 5,
+        texto:
+            "Desde la visita técnica hasta la instalación, todo fue profesional. Materiales sólidos y excelente terminación.",
+    },
+];
+
+function Stars({ value }: { value: number }) {
+    return (
+        <div className="flex items-center gap-1 text-[#bc7623]" aria-label={`Calificación ${value} de 5`}>
+            {Array.from({ length: 5 }, (_, i) => (
+                <Star key={i} className="size-4" fill={i < value ? "currentColor" : "none"} />
+            ))}
+        </div>
+    );
+}
 
 export default function Testimonials() {
     return (
-        <section className="py-16 md:py-32">
-            <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
-                <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12">
-                    <h2 className="text-4xl font-medium lg:text-5xl">Build by makers, loved by thousand developers</h2>
-                    <p>Gemini is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</p>
+        <section id="testimonios" className="w-full bg-[#f7f4ef] py-16 md:py-20">
+            <div className="mx-auto max-w-6xl px-4">
+                <div className="mx-auto mb-8 max-w-2xl text-center md:mb-12">
+                    <h2 className="text-3xl font-bold md:text-4xl">Testimonios de Clientes</h2>
+                    <p className="mt-3 text-muted-foreground">
+                        Opiniones reales sobre el servicio, la calidad del trabajo y el lugar donde se realizó cada proyecto.
+                    </p>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
-                    <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
-                        <CardHeader>
-                            <img
-                                className="h-6 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/nike.svg"
-                                alt="Nike Logo"
-                                height="24"
-                                width="auto"
-                            />
-                        </CardHeader>
-                        <CardContent>
-                            <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p className="text-xl font-medium">Tailus has transformed the way I develop web applications. Their extensive collection of UI components, blocks, and templates has significantly accelerated my workflow. The flexibility to customize every aspect allows me to create unique user experiences. Tailus is a game-changer for modern web development</p>
+                <Carousel opts={{ align: "start", loop: true }} className="mx-auto w-full max-w-5xl">
+                    <CarouselContent>
+                        {testimonials.map((item) => (
+                            <CarouselItem key={`${item.nombre}-${item.servicio}`} className="md:basis-1/2 lg:basis-1/3">
+                                <Card className="h-full border-[#d6c8b8] bg-white/90 shadow-sm">
+                                    <CardContent className="flex h-full flex-col gap-4 p-6">
+                                        <Stars value={item.puntaje} />
 
-                                <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                                    <Avatar className="size-12">
-                                        <AvatarImage
-                                            src="https://tailus.io/images/reviews/shekinah.webp"
-                                            alt="Shekinah Tshiokufila"
-                                            height="400"
-                                            width="400"
-                                            loading="lazy"
-                                        />
-                                        <AvatarFallback>ST</AvatarFallback>
-                                    </Avatar>
+                                        <p className="text-sm leading-relaxed text-[#1f2d3a]">"{item.texto}"</p>
 
-                                    <div>
-                                        <cite className="text-sm font-medium">Shekinah Tshiokufila</cite>
-                                        <span className="text-muted-foreground block text-sm">Software Ingineer</span>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </CardContent>
-                    </Card>
-                    <Card className="md:col-span-2">
-                        <CardContent className="h-full pt-6">
-                            <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p className="text-xl font-medium">Tailus is really extraordinary and very practical, no need to break your head. A real gold mine.</p>
+                                        <div className="mt-auto space-y-1 border-t border-[#efe6db] pt-4 text-sm">
+                                            <p className="font-semibold text-[#0b2a3b]">{item.nombre}</p>
+                                            <p className="text-muted-foreground">Servicio: {item.servicio}</p>
+                                            <p className="text-muted-foreground">Lugar: {item.lugar}</p>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
 
-                                <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                                    <Avatar className="size-12">
-                                        <AvatarImage
-                                            src="https://tailus.io/images/reviews/jonathan.webp"
-                                            alt="Jonathan Yombo"
-                                            height="400"
-                                            width="400"
-                                            loading="lazy"
-                                        />
-                                        <AvatarFallback>JY</AvatarFallback>
-                                    </Avatar>
-                                    <div>
-                                        <cite className="text-sm font-medium">Jonathan Yombo</cite>
-                                        <span className="text-muted-foreground block text-sm">Software Ingineer</span>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardContent className="h-full pt-6">
-                            <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p>Great work on tailfolio template. This is one of the best personal website that I have seen so far!</p>
-
-                                <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
-                                    <Avatar className="size-12">
-                                        <AvatarImage
-                                            src="https://tailus.io/images/reviews/yucel.webp"
-                                            alt="Yucel Faruksahan"
-                                            height="400"
-                                            width="400"
-                                            loading="lazy"
-                                        />
-                                        <AvatarFallback>YF</AvatarFallback>
-                                    </Avatar>
-                                    <div>
-                                        <cite className="text-sm font-medium">Yucel Faruksahan</cite>
-                                        <span className="text-muted-foreground block text-sm">Creator, Tailkits</span>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </CardContent>
-                    </Card>
-                    <Card className="card variant-mixed">
-                        <CardContent className="h-full pt-6">
-                            <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p>Great work on tailfolio template. This is one of the best personal website that I have seen so far!</p>
-
-                                <div className="grid grid-cols-[auto_1fr] gap-3">
-                                    <Avatar className="size-12">
-                                        <AvatarImage
-                                            src="https://tailus.io/images/reviews/rodrigo.webp"
-                                            alt="Rodrigo Aguilar"
-                                            height="400"
-                                            width="400"
-                                            loading="lazy"
-                                        />
-                                        <AvatarFallback>YF</AvatarFallback>
-                                    </Avatar>
-                                    <div>
-                                        <p className="text-sm font-medium">Rodrigo Aguilar</p>
-                                        <span className="text-muted-foreground block text-sm">Creator, TailwindAwesome</span>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </CardContent>
-                    </Card>
-                </div>
+                    <CarouselPrevious className="-left-2 border-[#c9b9a6] bg-white text-[#0b2a3b] hover:bg-[#f6efe6] md:-left-12" />
+                    <CarouselNext className="-right-2 border-[#c9b9a6] bg-white text-[#0b2a3b] hover:bg-[#f6efe6] md:-right-12" />
+                </Carousel>
             </div>
         </section>
-    )
+    );
 }

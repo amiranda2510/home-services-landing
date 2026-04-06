@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function AboutSection() {
   return (
-    <section className="w-full py-20 bg-[#f0f0f0]">
+    <section className="w-full py-20" id="nosotros">
       <div className="max-w-6xl mx-auto px-4">
 
         <div className="grid md:grid-cols-2 gap-12 items-center">

@@ -4,6 +4,7 @@ import HeroSection from "@/components/hero-section";
 import IntegrationsSection from "@/components/services-section";
 import CompareSlider from "@/components/projects-slider";
 import { AboutSection } from "@/components/about-section";
+import Testimonials from "@/components/testimonials";
 
 export default function Home() {
 	return (
@@ -12,6 +13,7 @@ export default function Home() {
 			<IntegrationsSection />
 			<CompareSlider />
 			<AboutSection />
+			<Testimonials />
 			<CallToAction />
 			<FooterSection />
 		</section>

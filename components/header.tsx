@@ -2,11 +2,10 @@
 
 import Link from 'next/link'
 import { LogoHeader } from '@/components/logo'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
-import { FaWhatsapp } from 'react-icons/fa'
 
 const menuItems = [
   { name: 'Home', href: '#home' },
@@ -84,12 +83,21 @@ export const HeroHeader = () => {
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 <Button
                   asChild
-                  size={isScrolled ? "sm" : "lg"}
-                  className='bg-[#128C7E] hover:bg-[#128C7E]/90 focus:ring-[#128C7E]/50 active:bg-[#128C7E]/70'>
+                  size="lg"
+                  className='rounded-lg bg-[#c85208]/85 backdrop-blur-xs border-2 border-white/20 hover:bg-[#c85208]/95 hover:shadow-[0_0_10px_rgba(200,82,8,0.6)] transition-shadow duration-100 focus:ring-ring/40 p-0 overflow-hidden'>
                   <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <div className='flex items-center gap-2'>
-                      <FaWhatsapp className="text-white" />
-                      <span>Escríbenos</span>
+                    <div className='flex items-stretch h-full'>
+                      <span className='font-bold text-sm px-5 flex items-center'>COTIZA AQUÍ</span>
+                      {!isScrolled && (
+                        <>                        
+                          <div className='w-px bg-white/20 self-stretch' />
+                          <div className='px-2 flex items-center justify-center bg-white/8'>
+                            <ArrowRight className='size-4' />
+                          </div>
+                        </>
+                      )
+                      }
+
                     </div>
                   </Link>
                 </Button>

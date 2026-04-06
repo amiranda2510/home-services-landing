@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const LogoHeader = () => {
     return (
-        <Image src="/logo-header.svg" alt="Alex Servicios" width={100} height={80} className='lg:w-[150px] lg:h-auto' />
+        <Image src="/alexlogo.svg" alt="Alex Servicios" width={200} height={150} className='lg:w-[150px] lg:h-auto' />
     )
 }
 

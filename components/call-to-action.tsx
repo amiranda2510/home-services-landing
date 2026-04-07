@@ -1,41 +1,55 @@
-import { Button } from '@/components/ui/button'
+import { ArrowRight, MessageCircleMore } from 'lucide-react'
 import Link from 'next/link'
 
-export default function CallToAction() {
-  return (
-    <section className="bg-[#f0f0f0] py-16 md:py-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col gap-12 lg:flex-row items-center">
+import { Button } from '@/components/ui/button'
 
-          {/* TÍTULO */}
-          <div className="lg:w-1/2 text-center lg:text-left">
-            <h2 className="text-3xl font-semibold lg:text-4xl leading-tight">
-              Solicita tu cotización <br /> hoy mismo.
+export default function CallToAction() {
+  const whatsappUrl = 'https://wa.me/51929287749?text=Hola,%20quiero%20cotizar%20un%20servicio'
+
+  return (
+    <section className="bg-[#f7f4ef] py-16 md:pt-20 md:pb-10">
+      <div className="w-full bg-[#bc7623] py-4 text-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-center px-4 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] md:text-sm">
+            Atención rápida por WhatsApp • Servicio personalizado • Cotizaciones sin compromiso
+          </span>
+        </div>
+      </div>
+
+      <div className="mx-auto w-full max-w-6xl px-4">
+        <div className="grid items-center gap-8 py-10 md:gap-10 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:py-14">
+          <div className="text-center lg:text-left">
+            <h2 className="text-3xl font-bold leading-tight text-[#0b2a3b] md:text-4xl">
+              Solicita tu cotización hoy mismo.
             </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Cuéntanos qué necesitas y te responderemos con una propuesta clara, tiempos estimados y una atención directa para tu servicio.
+            </p>
           </div>
 
-          {/* TEXTO + BOTÓN */}
-          <div className="lg:w-1/2 lg:pl-12 text-center lg:text-left">
-            <p className="text-muted-foreground mb-6 px-8 lg:px-0 text-lg">
-              Escríbenos por WhatsApp y cuéntanos qué necesitas.
-              Te responderemos rápidamente con una cotización clara
-              y sin compromiso.
-            </p>
+          <div className="border-t border-[#e4d8ca] pt-6 text-center lg:border-t-0 lg:border-l lg:pl-12 lg:pt-0 lg:text-left">
+            <div className="mb-4 flex justify-center lg:justify-start">
+              <div className="flex size-12 items-center justify-center rounded-full bg-[#e7f6ec] text-[#1EA851]">
+                <MessageCircleMore className="size-6" />
+              </div>
+            </div>
 
+            <p className="text-sm leading-relaxed text-[#425466]">
+              Ideal para consultas rápidas, coordinaciones y cotizaciones sin compromiso.
+            </p>
 
             <Button
               asChild
               size="lg"
-              className="px-5 text-base text-zinc-50 transition-all duration-300 ease-out hover:scale-105 hover:text-zinc-50 hover:shadow-[0_12px_30px_rgba(30,140,70,0.45)] focus-visible:scale-105 focus-visible:text-zinc-50 focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.25)] active:scale-100"
+              className="mt-6 h-11 rounded-xl bg-[#1EA851] px-5 text-base font-semibold text-white shadow-[0_14px_30px_rgba(30,168,81,0.24)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#179247] hover:text-white"
               aria-label="Cotiza ahora"
-              style={{ backgroundColor: '#1EA851' }}
             >
-              <Link href="https://wa.me/51929287749?text=Hola,%20quiero%20cotizar%20un%20servicio" target="_blank" rel="noopener noreferrer">
-                <span className="text-nowrap">👉    Cotiza ahora</span>
+              <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                <span className="text-nowrap">Cotiza ahora</span>
+                <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>
-
         </div>
       </div>
     </section>

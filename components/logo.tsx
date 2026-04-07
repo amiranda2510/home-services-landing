@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 export const LogoHeader = () => {
     return (
-        <Image src="/alexlogo.svg" alt="Alex Servicios" width={200} height={150} className='lg:w-[150px] lg:h-auto' />
+        <Image src="/alexlogo.svg" alt="Alex Servicios" width={200} height={80} className='w-28 h-auto md:w-32 lg:w-36' />
     )
 }
 
 export const LogoFooter = () => {
     return (
-        <Image src="/logo-footer.svg" alt="Alex Servicios" width={130} height={130} className='lg:w-[130px] lg:h-auto' />
+        <Image src="/alexlogo.svg" alt="Alex Servicios" width={180} height={180} className='w-28 h-auto md:w-32 lg:w-54' />
     )
 }

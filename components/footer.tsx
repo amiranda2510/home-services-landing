@@ -3,28 +3,24 @@ import Link from 'next/link'
 
 const links = [
     {
-        title: 'Features',
-        href: '#',
+        title: 'Home',
+        href: '#home',
     },
     {
-        title: 'Solution',
-        href: '#',
+        title: 'Servicios',
+        href: '#servicios',
     },
     {
-        title: 'Customers',
-        href: '#',
+        title: 'Proyectos',
+        href: '#proyectos',
     },
     {
-        title: 'Pricing',
-        href: '#',
+        title: 'Testimonios',
+        href: '#testimonios',
     },
     {
-        title: 'Help',
-        href: '#',
-    },
-    {
-        title: 'About',
-        href: '#',
+        title: 'Nosotros',
+        href: '#nosotros',
     },
 ]
 
@@ -158,7 +154,8 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                 </div>
-                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Tailark, All rights reserved</span>
+                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Servicios del hogar, All rights reserved</span>
+                <span className="text-muted-foreground block text-center text-sm mt-2">Desarrollado por <a href="https://www.linkedin.com/in/andreamirandapiera/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Andrea Miranda</a></span>
             </div>
         </footer>
     )

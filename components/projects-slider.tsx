@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 
 const photos = [
   { src: "/assets/portfolio/piso.jpg", label: "Piso laminado", location: "San Miguel", span: 2 },
@@ -37,16 +38,22 @@ export default function ProjectsGrid() {
                 src={photo.src}
                 alt={`${photo.label} en ${photo.location}`}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-active:scale-105 md:group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100" />
+              <motion.div
+                initial={{ opacity: 0, filter: "blur(8px)", y: 12 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ type: "spring", bounce: 0.3, duration: 1, delay: i * 0.08 }}
+                viewport={{ once: false, amount: 0.45 }}
+                className="absolute bottom-0 left-0 right-0 p-3 translate-y-0 transition-transform duration-300 md:translate-y-full md:group-hover:translate-y-0"
+              >
                 <span className="mb-1 inline-block rounded-full bg-[#03466e] px-2 py-0.5 text-xs font-semibold text-white">
                   Proyecto realizado
                 </span>
                 <p className="text-white text-sm font-semibold leading-tight">{photo.label}</p>
                 <p className="text-white/70 text-xs">{photo.location}</p>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>

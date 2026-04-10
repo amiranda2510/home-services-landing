@@ -12,7 +12,7 @@ import {
 export default function IntegrationsSection() {
     return (
         <section id="servicios">
-            <div className="py-32">
+            <div className="py-20 lg:py-32">
                 <div className="mx-auto max-w-5xl px-6">
                     <div className="text-center">
                         <h2 className="text-balance text-3xl font-bold md:text-4xl">Soluciones para tu hogar</h2>

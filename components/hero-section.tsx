@@ -1,9 +1,10 @@
 "use client"
 
-import { useRef } from 'react'
-import { useInView } from 'motion/react'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { HeroHeader } from './header'
 import { AnimatedGroup } from './ui/animated-group'
+import { Button } from './ui/button'
 import { TextEffect } from './ui/text-effect'
 
 const transitionVariants = {
@@ -27,8 +28,7 @@ const transitionVariants = {
 }
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' })
+  const whatsappUrl = `https://wa.me/51929287749?text=${encodeURIComponent('Hola, quiero cotizar un servicio')}`
 
   return (
     <>
@@ -44,13 +44,12 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-black/25" aria-hidden></div>
             <div className="relative z-10 pb-24 pt-12 md:pb-22 lg:pb-36 lg:pt-15">
               <div className="relative mx-auto flex max-w-6xl flex-col px-6 lg:flex-row lg:items-center lg:gap-12">
-                <div ref={sectionRef} className="mx-auto max-w-lg text-center lg:ml-0 lg:w-1/2 lg:text-left">
+                <div className="relative z-20 mx-auto max-w-lg text-center lg:ml-0 lg:w-1/2 lg:text-left">
                   <TextEffect
                     as="h1"
                     preset="fade-in-blur"
                     speedSegment={0.3}
-                    trigger={inView}
-                    className="mt-24 max-w-2xl text-balance text-5xl font-bold text-zinc-50 md:text-6xl lg:mt-10 xl:text-7xl"
+                    className="mt-16 max-w-2xl text-balance text-4xl font-bold text-zinc-50 sm:text-5xl md:text-6xl lg:mt-10 xl:text-7xl"
                   >
                     Soluciones confiables para tu hogar
                   </TextEffect>
@@ -60,8 +59,7 @@ export default function HeroSection() {
                     preset="fade-in-blur"
                     speedSegment={0.3}
                     delay={0.5}
-                    trigger={inView}
-                    className="mt-8 max-w-2xl text-pretty text-xl font-semibold text-zinc-200"
+                    className="mt-6 max-w-2xl text-pretty text-lg font-semibold text-zinc-200 sm:text-xl"
                   >
                     Reparaciones, mantenimiento y remodelaciones. Trabajos garantizados y atención personalizada en todo Lima
                   </TextEffect>
@@ -71,7 +69,6 @@ export default function HeroSection() {
                     preset="fade-in-blur"
                     speedSegment={0.3}
                     delay={0.7}
-                    trigger={inView}
                     className="mt-4 max-w-2xl text-pretty text-lg font-semibold text-zinc-200"
                   >
                     ✓ Técnico certificado
@@ -82,7 +79,6 @@ export default function HeroSection() {
                     preset="fade-in-blur"
                     speedSegment={0.3}
                     delay={0.9}
-                    trigger={inView}
                     className="mt-4 max-w-2xl text-pretty text-lg font-semibold text-zinc-200"
                   >
                     ✓ Atención en menos de 24h
@@ -93,14 +89,38 @@ export default function HeroSection() {
                     preset="fade-in-blur"
                     speedSegment={0.3}
                     delay={1.1}
-                    trigger={inView}
                     className="mt-4 max-w-2xl text-pretty text-lg font-semibold text-zinc-200"
                   >
                     ✓ Garantía en todos los servicios
                   </TextEffect>
-
                 </div>
                 <AnimatedGroup
+                  className="mt-6 flex justify-center lg:hidden"
+                  variants={{
+                    container: {
+                      visible: {
+                        transition: {
+                          delayChildren: 1.3,
+                        },
+                      },
+                    },
+                    ...transitionVariants,
+                  }}
+                >
+                  <Button
+                    asChild
+                    size="lg"
+                    className='rounded-lg bg-[#c85208]/85 border-2 border-white/20 p-0 backdrop-blur-xs overflow-hidden transition-shadow duration-100 hover:bg-[#c85208]/95 hover:shadow-[0_0_10px_rgba(200,82,8,0.6)] focus:ring-ring/40'>
+                    <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      <div className='flex items-stretch h-full'>
+                        <span className='px-5 text-sm font-bold flex items-center'>COTIZA AQUÍ</span>
+                        <div className='w-px bg-white/20 self-stretch' />
+                      </div>
+                    </Link>
+                  </Button>
+                </AnimatedGroup>
+                <AnimatedGroup
+                  className="hidden md:block"
                   variants={{
                     container: {
                       visible: {
